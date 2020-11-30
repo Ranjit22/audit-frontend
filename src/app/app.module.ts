@@ -13,17 +13,21 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { AlertComponent } from './_components';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AuditComponent } from './audit';
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        appRoutingModule
+        appRoutingModule,
+        NgxPaginationModule
     ],
     declarations: [
         AppComponent,
         HomeComponent,
+        AuditComponent,
         LoginComponent,
         RegisterComponent,
         AlertComponent
@@ -33,7 +37,7 @@ import { AlertComponent } from './_components';
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
         // provider used to create fake backend
-        fakeBackendProvider
+        // fakeBackendProvider
     ],
     bootstrap: [AppComponent]
 })

@@ -1,0 +1,35 @@
+﻿
+<div style="text-align:center">
+    <h4>
+      Users list
+    </h4>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Role</th>
+          <th scope="col">Login Time</th>
+          <th scope="col">Logout Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | paginate: config">
+          <th scope="row">{{user.username}}</th>
+          <td>{{user.role}}</td>
+          <td>{{user?.loginTime | date: "dd-MM-yyyy HH:mm:ss"}}</td>
+          <td>{{user?.logoutTime | date: "dd-MM-yyyy HH:mm:ss"}}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <pagination-controls *ngIf="users.length" (pageChange)="pageChanged($event)"></pagination-controls>
+  
+  </div>
+<!-- <h3>All registered users:</h3> -->
+<!-- <ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul> -->
