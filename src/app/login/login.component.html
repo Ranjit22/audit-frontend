@@ -15,6 +15,17 @@
         </div>
     </div>
     <div class="form-group">
+        <label for="role">Role</label>
+        <select class="form-control" formControlName="role" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
+            <option value="" disabled> Select </option>
+            <option value="Auditor"> Auditor </option>
+            <option value="Normal"> Normal </option>
+        </select>
+        <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+            <div *ngIf="f.role.errors.required">Role is required</div>
+        </div>       
+    </div>
+    <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
             Login

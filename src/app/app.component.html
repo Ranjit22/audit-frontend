@@ -1,7 +1,8 @@
 ﻿<!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
     <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" routerLink="/">Dashboard</a>
+        <a class="nav-item nav-link" routerLink="/audit" *ngIf="currentUser.role == 'Auditor'">Audit</a>
         <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
 </nav>
@@ -19,11 +20,11 @@
 </div>
 
 <!-- credits -->
-<div class="text-center">
+<!-- <div class="text-center">
     <p>
         <a href="https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial" target="_top">Angular 8 - User Registration and Login Example & Tutorial</a>
     </p>
     <p>
         <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
     </p>
-</div>
+</div> -->
